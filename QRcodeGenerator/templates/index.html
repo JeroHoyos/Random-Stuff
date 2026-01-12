@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <form method="post">
+        <h2>Generar código QR</h2>
+
+        <div class="form_input">
+            <input
+                type="url"
+                name="link"
+                placeholder="https://"
+                required
+            >
+        </div>
+
+        <div class="form_input">
+            <input
+                type="text"
+                name="filename"
+                placeholder="New_QR"
+                required
+            >
+        </div>
+
+        <div class="form_input">
+            <input type="submit" value="Generar QR">
+        </div>
+    </form>
+
+    {% if qr %}
+        <div class="qr_container">
+            <p>Archivo generado: <strong>{{ filename }}.png</strong></p>
+            <img src="{{ qr }}" alt="QR generado">
+        </div>
+    {% endif %}
+
+</body>
+</html>
+
